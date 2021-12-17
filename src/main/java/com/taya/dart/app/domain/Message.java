@@ -2,9 +2,18 @@ package com.taya.dart.app.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Message {
-    private String name;
+    @Id
+    private Long id;
+    private String data;
+
+    public Message(String data) {
+        this.data = data;
+    }
 }

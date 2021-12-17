@@ -20,7 +20,7 @@ public class GreetingHandler {
 
     public Mono<ServerResponse> hello(ServerRequest request) {
         Flux<Message> messageFlux = Flux.just("field1", "field2", "field3", "field4", "field5", "field6")
-                .map(Message::new);
+                .map(msg -> new Message(msg));
 
         return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
                 .body(messageFlux, Message.class);
